@@ -1,0 +1,30 @@
+indrex.html <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Loja Online</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    let carrinho = [];
+
+    function adicionarAoCarrinho(nome, preco) {
+      carrinho.push({ nome, preco });
+      alert(`${nome} adicionado ao carrinho!`);
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById('lista-carrinho');
+      lista.innerHTML = '';
+      carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nome} - R$ ${item.preco}`;
+        lista.appendChild(li);
+      });
+    }
+
+    function mostrarDetalhes(nome, preco, imagem) {
+      document.getElementById('detalhe-nome').textContent = nome;
+      document.getElementById('detalhe-preco').textContent = `R$ ${preco}`;
+      do
